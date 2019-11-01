@@ -12,6 +12,7 @@
     </head>
     <body>
         <?php
+            $processed = false;
             // File attributes: name, type, tmp_name, size
             // POST Attributes: duration
             if ($_FILES['file'] && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
@@ -38,6 +39,8 @@
                             $statement->bindValue(':duration', $_POST['duration']);
                             $statement->bindValue(':type', $_FILES['file']['type']);
                             $statement->execute(); // you can reuse the statement with different values
+
+                            $processed = true;
                         }
                     }
                 }
@@ -45,5 +48,18 @@
                 // Do something
             }
         ?>
+
+        <?php if ($processed) { ?>
+            <div class="container h-100 d-flex justify-content-center">
+                <div class="jumbotron my-auto">
+                <h1 class="display-4">Your file was uploaded!</h1>
+                <p>The token that was generated for this file is: <strong><?php echo $token ?></strong>. The token expires in <?php echo $_POST['duration'] ?> hours.
+                <hr class="my-4">
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="../index.php" role="button">Go back</a>
+                </p>
+                </div>
+            </div>
+        <?php } ?>
     </body>
 </html>

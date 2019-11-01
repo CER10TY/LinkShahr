@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./public/css/main.css">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+        <script src="../public/js/main.js" integrity="sha384-HvaLN1YH7wB0wInkz7frD1BNHlBjf+FhL1JsGq5+X+zT2iaTxPncpZ9NUF1PimfC" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -19,9 +20,6 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="customFile" name="file" required>
                         <label class="custom-file-label" for="customFile">Choose file</label>
-                        <small id="fileHelpBlock" class="form-text text-muted">
-                            The following file types are accepted: a, b ,c.
-                        </small>
                         <div class="invalid-feedback">
                             Please select a valid file.
                         </div>
@@ -30,13 +28,11 @@
                     <select class="custom-select" name="duration" required>
                         <option value="">Duration</option>
                         <option value="24">24h</option>
-                        <option value="48">48h</option>
-                        <option value="72">72h</option>
                     </select>
                     <div class="invalid-feedback">Please select a duration.</div>
                     </div>
-                    <button type="submit" class="btn btn-success">Upload</button>
-                    <a class="btn btn-primary" href="src/download.php" role="button">Download file</a>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <a class="btn btn-secondary" href="src/download.php" role="button">Download file</a>
                 </form>
             </div>
         </div>
