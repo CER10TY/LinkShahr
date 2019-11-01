@@ -32,10 +32,11 @@
                             // We successfully moved the file, now comes the SQLite part
                             $db = new SQLite3('files.db', SQLITE3_OPEN_READWRITE);
 
-                            $statement = $db->prepare('INSERT INTO "files" ("filename", "token", "duration") VALUES (:filename, :token, :duration)');
+                            $statement = $db->prepare('INSERT INTO "files" ("filename", "token", "duration", "type") VALUES (:filename, :token, :duration, :type)');
                             $statement->bindValue(':filename', $newName);
                             $statement->bindValue(':token', $token);
                             $statement->bindValue(':duration', $_POST['duration']);
+                            $statement->bindValue(':type', $_FILES['file']['type']);
                             $statement->execute(); // you can reuse the statement with different values
                         }
                     }
