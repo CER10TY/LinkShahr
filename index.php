@@ -18,8 +18,8 @@
             <div class="col d-flex justify-content-center">
                 <form enctype="multipart/form-data" action="src/upload.php" method="POST" class="needs-validation" novalidate>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile" name="file" required>
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="customFile" name="file[]" multiple required>
+                        <label class="custom-file-label" for="customFile">Choose file(s)</label>
                         <div class="invalid-feedback">
                             Please select a valid file.
                         </div>

@@ -12,54 +12,105 @@
     </head>
     <body>
         <?php
-            $processed = false;
-            // File attributes: name, type, tmp_name, size
-            // POST Attributes: duration
-            if ($_FILES['file'] && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
-                if ($_POST['duration']) {
-                    // Generate our token
-                    $bytes = random_bytes(3);
-                    $token = bin2hex($bytes);
 
-                    // Define upload directory, split string
-                    $uploaddir = '/var/www/linkshare/uploads/';
-                    $filesplit = explode(".", basename($_FILES['file']['name']));
+            function reArrayFiles(&$file_post) {
 
-                    if ($filesplit[0] && $filesplit[1]) {
-                        $newName = $filesplit[0] . '.' . $token . '.' . $filesplit[1];
-                        $uploadfile = $uploaddir . $newName;
+                $file_ary = array();
+                $file_count = count($file_post['name']);
+                $file_keys = array_keys($file_post);
 
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-                            // We successfully moved the file, now comes the SQLite part
-                            $db = new SQLite3('files.db', SQLITE3_OPEN_READWRITE);
-
-                            $statement = $db->prepare('INSERT INTO "files" ("filename", "token", "duration", "type") VALUES (:filename, :token, :duration, :type)');
-                            $statement->bindValue(':filename', $newName);
-                            $statement->bindValue(':token', $token);
-                            $statement->bindValue(':duration', $_POST['duration']);
-                            $statement->bindValue(':type', $_FILES['file']['type']);
-                            $statement->execute(); // you can reuse the statement with different values
-
-                            $processed = true;
-                        }
+                for ($i=0; $i<$file_count; $i++) {
+                    foreach ($file_keys as $key) {
+                        $file_ary[$i][$key] = $file_post[$key][$i];
                     }
                 }
-            } elseif ($_FILES['file']['error'] != UPLOAD_ERR_OK) {
-                // Do something
+
+                return $file_ary;
+            }
+
+            $processed = false;
+            $error = false;
+            $errorMsg = "";
+            $tokens = [];
+            $names = [];
+
+            if ($_FILES['file']) {
+                if ($_POST['duration']) {
+
+                    $file_ary = reArrayFiles($_FILES['file']);
+                    
+                    foreach ($file_ary as $file) {
+                        // Generate our token
+                        $bytes = random_bytes(3);
+                        $token = bin2hex($bytes);
+
+                        $tokens[] = $token;
+
+                        // Define upload directory, split string
+                        $uploaddir = '/var/www/linkshare/uploads/';
+                        $filesplit = explode(".", basename($file['name']));
+
+                        if ($filesplit[0] && $filesplit[1]) {
+                            $newName = $filesplit[0] . '.' . $token . '.' . $filesplit[1];
+                            $uploadfile = $uploaddir . $newName;
+
+                            if (move_uploaded_file($file['tmp_name'], $uploadfile)) {
+                                // We successfully moved the file, now comes the SQLite part
+                                $db = new SQLite3('files.db', SQLITE3_OPEN_READWRITE);
+
+                                $statement = $db->prepare('INSERT INTO "files" ("filename", "token", "duration", "type") VALUES (:filename, :token, :duration, :type)');
+                                $statement->bindValue(':filename', $newName);
+                                $statement->bindValue(':token', $token);
+                                $statement->bindValue(':duration', $_POST['duration']);
+                                $statement->bindValue(':type', $file['type']);
+                                $statement->execute();
+
+                                $names[] = basename($file['name']);
+                            }
+                        }
+                    }
+
+                    $processed = true;
+                }
             }
         ?>
 
-        <?php if ($processed) { ?>
+        <?php if ($processed): ?>
             <div class="container h-100 d-flex justify-content-center">
                 <div class="jumbotron my-auto">
-                <h1 class="display-4">Your file was uploaded!</h1>
-                <p>The token that was generated for this file is: <strong><?php echo $token ?></strong>. The token expires in <?php echo $_POST['duration'] ?> hours.
+                <?php if (count($tokens) == 1): ?>
+                    <h1 class="display-4">Your file was uploaded!</h1>
+                    <p>The token that was generated for this file is: <strong><?php echo $token ?></strong>. The token expires in <strong><?php echo $_POST['duration'] ?> hours</strong>.</p>
+                <?php else: ?>
+                    <h1 class="display-4">Your files were uploaded!</h1>
+                    <p>The following tokens were generated: <br />
+                    <ul class="list-group">
+                        <?php foreach($tokens as $index=>$singletoken): ?>
+                            <li class="list-group-item"><strong><?php echo $singletoken ?></strong>: <?php echo $names[$index] ?></li>
+                        <?php endforeach; ?>
+                    </ul><br/>
+                    These tokens expire in <strong><?php echo $_POST['duration'] ?> hours</strong>.</p>
+                <?php endif; ?>
                 <hr class="my-4">
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="../index.php" role="button">Go back</a>
                 </p>
                 </div>
             </div>
-        <?php } ?>
+        <?php endif; ?>
+
+        <?php if ($error): ?>
+            <div class="container h-100 d-flex justify-content-center">
+                <div class="jumbotron my-auto">
+                <h1 class="display-4">Error!</h1>
+                <p>There was an error processing your request!<br/>
+                    <span><em><?php echo $errorMsg ?></em></span></p>
+                <hr class="my-4">
+                <p class="lead">
+                    <a class="btn btn-danger btn-lg" href="../index.php" role="button">Go back</a>
+                </p>
+                </div>
+            </div>
+        <?php endif; ?>
     </body>
 </html>
