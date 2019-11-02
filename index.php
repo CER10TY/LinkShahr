@@ -30,10 +30,10 @@
                     <div class="form-group">
                         <select class="custom-select" name="duration" required>
                             <option value="">Duration</option>
-                            <option value="5">5 mins</option>
-                            <option value="10">10 mins</option>
-                            <option value="15">15 mins (+2€)</option>
-                            <option value="20">20 mins (+5€)</option>
+                            <option value="6">6 hours</option>
+                            <option value="12">12 hours</option>
+                            <option value="24">24 hours (+2€)</option>
+                            <option value="48">48 hours (+5€)</option>
                         </select>
                         <div class="invalid-feedback">Please select a duration.</div>
                     </div>

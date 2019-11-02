@@ -33,7 +33,7 @@
             $errorMsg = "";
             $tokens = [];
             $names = [];
-
+            var_dump($_FILES);
             if ($_FILES['file']) {
                 if ($_POST['duration']) {
 
