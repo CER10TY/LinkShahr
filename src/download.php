@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' 'sha384-HvaLN1YH7wB0wInkz7frD1BNHlBjf+FhL1JsGq5+X+zT2iaTxPncpZ9NUF1PimfC'">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm'; script-src 'sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' 'sha384-HvaLN1YH7wB0wInkz7frD1BNHlBjf+FhL1JsGq5+X+zT2iaTxPncpZ9NUF1PimfC' 'sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'">-->
 
 
-        <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="../public/css/main.css">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="../public/js/main.js" integrity="sha384-HvaLN1YH7wB0wInkz7frD1BNHlBjf+FhL1JsGq5+X+zT2iaTxPncpZ9NUF1PimfC" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     <body>
 
@@ -49,6 +50,26 @@
                 }
             }
         ?>
+
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.php">Quicksha.re</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="imprint.php">Imprint</a>
+                </li>
+                </ul>
+                <span class="navbar-text d-none d-lg-block">
+                Quick and easy file sharing betwen mobile and desktop.
+                </span>
+            </div>
+        </nav>
 
         <div class="h-100 row align-items-center">
             <div class="col d-flex justify-content-center">
