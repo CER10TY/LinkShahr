@@ -42,8 +42,6 @@
                             <option value="">Duration</option>
                             <option value="6">6 hours</option>
                             <option value="12">12 hours</option>
-                            <option value="24">24 hours (+2€)</option>
-                            <option value="48">48 hours (+5€)</option>
                         </select>
                         <div class="invalid-feedback">Please select a duration.</div>
                     </div>
