@@ -30,7 +30,11 @@
             $errorMsg = "";
             $tokens = [];
             $names = [];
-            if ($_FILES['file']) {
+            
+            if (!isset($_FILES) || $_FILES['file']['error'][0] !== 0) {
+                $error = true;
+                $errorMsg = "Error 413: Files were too large!";
+            } elseif ($_FILES['file']) {
                 if ($_POST['duration']) {
 
                     $file_ary = reArrayFiles($_FILES['file']);
@@ -99,11 +103,11 @@
             <div class="container h-100 d-flex justify-content-center black-full">
                 <div class="jumbotron my-auto">
                 <h1 class="display-4">Error!</h1>
-                <p>There was an error processing your request!<br/>
+                <p>There was an error processing your request:<br/>
                     <span><em><?php echo $errorMsg ?></em></span></p>
                 <hr class="my-4">
                 <p class="lead">
-                    <a class="btn btn-danger btn-lg" href="../index.php" role="button">Go back</a>
+                    <a class="btn btn-dark btn-lg" href="../index.php" role="button">Go back</a>
                 </p>
                 </div>
             </div>

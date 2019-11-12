@@ -49,6 +49,9 @@
                     </div>
                     <button type="submit" class="btn btn-light">Upload</button>
                     <a class="btn btn-dark" href="src/download.php" role="button">Download file</a>
+                    <small id="fileHelpBlock" class="form-text">
+                        Individual files cannot be larger than 150 MB.
+                    </small>
                 </form>
             </main>
 
@@ -59,36 +62,6 @@
                 </div>
             </footer>
         </div>
-
-        <!--<div class="h-100 row align-items-center">
-            <div class="col d-flex justify-content-center">
-                <form enctype="multipart/form-data" class="col-sm-3" action="src/upload.php" method="POST" class="needs-validation" novalidate>
-                    <div class="form-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="file[]" multiple required>
-                            <label class="custom-file-label" for="customFile" id="custom-file-lbl">Choose file(s)</label>
-                            <div class="invalid-feedback">
-                                Please select a valid file.
-                            </div>
-                        </div>
-                        <ul class="list-group d-none" id="custom-file-list">
-                        </ul>
-                    </div>
-                    <div class="form-group">
-                        <select class="custom-select" name="duration" required>
-                            <option value="">Duration</option>
-                            <option value="6">6 hours</option>
-                            <option value="12">12 hours</option>
-                            <option value="24">24 hours (+2€)</option>
-                            <option value="48">48 hours (+5€)</option>
-                        </select>
-                        <div class="invalid-feedback">Please select a duration.</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Upload</button>
-                    <a class="btn btn-secondary" href="src/download.php" role="button">Download file</a>
-                </form>
-            </div>
-        </div>-->
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
