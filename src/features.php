@@ -24,8 +24,8 @@
         <main role="main" class="cover container">
             <ul class="list-unstyled">
                 <li>
-                    <h1>What is this?</h1>
-                    <p class="lead">Quicksha.re is a way to share files between any devices.
+                    <h1 class="mt-5">What is this?</h1>
+                    <p class="lead">Quicksha.re is a way to share files between any devices with ease.
                     The way it works is simple: Choose one or more files and decide how long they should be saved. Once the files are uploaded, you are given a token for each one. 
                     With this token, you can download individual files on any device, anywhere, at any time. After the tokens expire, the files are deleted from the server and you will no longer be able to access them.</p>
                 </li>
@@ -35,11 +35,10 @@
                     You can check out my blog at <a href="https://www.soeren.codes/" class="text-secondary">soeren.codes</a> or jump straight to my <a href="https://github.com/CER10TY" class="text-secondary">GitHub</a>.</p>
                 </li>
                 <li>
-                    <h1>What purpose does it have?</h1>
-                    <p class="lead">I was personally getting frustrated with sharing documents between my different devices, especially on the go.
-                    Whenever I had found an interesting document that I wanted to have a look at later, I had no quick and easy option.
-                    Using e-mail or Dropbox proved to be a cumbersome process, especially when I had only a few minutes.
-                    With Quicksha.re, I can now easily upload files, save the tokens and download them later.</p>
+                    <h1>What's the point?</h1>
+                    <p class="lead">Whenever I wanted to quickly share documents between different devices on the go, I hit a roadblock. I could either e-mail it to myself,
+                    or use online storage tools like Dropbox. However, none of the options available were particularly fast, mainly because they were account-based and required logging in.
+                    With Quicksha.re, my aim was to provide a tool that requires no account and where users can simply up- and download files on demand through the use of tokens.</p>
                 </li>
             </ul>
         </main>
@@ -47,7 +46,7 @@
         <footer class="mastfoot mt-auto text-center">
             <div class="inner">
             <p>Partial use of Bootstrap cover template by <a href="https://twitter.com/mdo">@mdo</a>.<br/>
-            &copy; 2019- soeren codes</p>
+            &copy; 2019- <a href="https://www.soeren.codes/">soeren.codes</a></p>
             </div>
         </footer>
     </div>

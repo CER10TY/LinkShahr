@@ -28,7 +28,7 @@
         <footer class="mastfoot mt-auto text-center">
             <div class="inner">
             <p>Partial use of Bootstrap cover template by <a href="https://twitter.com/mdo">@mdo</a>.<br/>
-            &copy; 2019- soeren codes</p>
+            &copy; 2019- <a href="https://www.soeren.codes/">soeren.codes</a></p>
             </div>
         </footer>
     </div>
