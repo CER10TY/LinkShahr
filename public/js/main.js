@@ -28,7 +28,7 @@
 
                 removeLink.setAttribute("href", "#");
                 removeLink.setAttribute("data-element", fileElement.id);
-                removeLink.classList.add("badge", "badge-danger");
+                removeLink.classList.add("badge", "badge-dark");
                 removeLink.appendChild(document.createTextNode("X"));
 
 
