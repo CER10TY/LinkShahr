@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./public/css/main.css">
         <link rel="stylesheet" href="./public/css/index.css">
     </head>
@@ -17,7 +18,7 @@
         <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="masthead mb-auto">
                 <div class="inner">
-                <a href="#"><h3 class="masthead-brand">[CP.Share]</h3></a>
+                <a href="#"><h3 class="masthead-brand">[CP&amp;Share]</h3></a>
                 <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="src/features.php">Features</a>
                     <a class="nav-link" href="src/contact.php">Contact</a>
@@ -26,7 +27,7 @@
             </header>
 
             <main role="main" class="inner cover d-flex justify-content-center">
-                <form enctype="multipart/form-data" class="col-sm-2 needs-validation" action="src/upload.php" method="POST" novalidate>
+                <form enctype="multipart/form-data" class="col-sm-2 needs-validation mt-2" action="src/upload.php" method="POST" novalidate>
                     <div class="form-group">
                         <input type="file" class="file-input" id="customFile" name="file[]" data-multiple-caption="{count} file(s) selected" multiple>
                         <label class="file-label" for="customFile" id="custom-file-lbl">Choose file(s)</label>
@@ -50,8 +51,12 @@
                     <button type="submit" class="btn btn-light">Upload</button>
                     <a class="btn btn-dark" href="src/download.php" role="button">Download file</a>
                     <small id="fileHelpBlock" class="form-text">
-                        Individual files cannot be larger than 150 MB.
+                        Individual files cannot be larger than 250 MB.
                     </small>
+                    <br/>
+                    <p class="text-center">
+                        <i class="fa fa-2x fa-lock"></i> <br/>Encrypted using the AES-256 encryption standard
+                    </p>
                 </form>
             </main>
 

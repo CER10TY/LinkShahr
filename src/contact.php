@@ -13,7 +13,7 @@
     <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
-            <a href="../index.php"><h3 class="masthead-brand">[CP.Share]</h3></a>
+            <a href="../index.php"><h3 class="masthead-brand">[CP&amp;Share]</h3></a>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="features.php">Features</a>
                 <a class="nav-link active" href="#">Contact</a>

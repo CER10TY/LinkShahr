@@ -10,6 +10,8 @@
     <body>
         <?php
 
+            use ioncube\phpOpensslCryptor\Cryptor;
+
             function reArrayFiles(&$file_post) {
 
                 $file_ary = array();
@@ -31,11 +33,18 @@
             $tokens = [];
             $names = [];
             
-            if (!isset($_FILES) || $_FILES['file']['error'][0] !== 0) {
+            if (($_FILES['file'] && $_FILES['file']['error'][0] === 0) || $_POST['link']) {
+                if ($_POST['duration']) {
+                    // Do productive things here!
+                } else {
+                    $error = true;
+                    $errorMsg = "400 Bad Request: The parameter 'Duration' is missing!";
+                }
+            } elseif (!isset($_FILES) || $_FILES['file']['error'][0] !== 0) {
                 $error = true;
-                $errorMsg = "Error 413: Files are too large!";
-            } 
-            if ($_FILES['file']) {
+                $errorMsg = "413 Request Entity too large: Individual files can only be up to 250 MB in size!";
+            }
+            /* if ($_FILES['file']) {
                 if ($_POST['duration']) {
 
                     $file_ary = reArrayFiles($_FILES['file']);
@@ -73,10 +82,7 @@
 
                     $processed = true;
                 }
-            }
-            if ($_POST['link']) {
-                var_dump($_POST['link']);
-            }
+            } */
         ?>
 
         <?php if ($processed): ?>

@@ -13,7 +13,7 @@
     <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
-            <a href="../index.php"><h3 class="masthead-brand">[CP.Share]</h3></a>
+            <a href="../index.php"><h3 class="masthead-brand">[CP&amp;Share]</h3></a>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="#">Features</a>
                 <a class="nav-link" href="contact.php">Contact</a>
@@ -24,8 +24,8 @@
         <main role="main" class="cover container">
             <ul class="list-unstyled">
                 <li>
-                    <h1 class="mt-5">What is this?</h1>
-                    <p class="lead">[CP.Share] is a way to share files between any devices with ease.
+                    <h1 class="mt-5">What's this?</h1>
+                    <p class="lead">[CP&amp;Share] is a way to share files between any devices with ease.
                     The way it works is simple: Choose one or more files and decide how long they should be saved. Once the files are uploaded, you are given a token for each one. 
                     With this token, you can download individual files on any device, anywhere, at any time. After the tokens expire, the files are deleted from the server and you will no longer be able to access them.</p>
                 </li>
@@ -33,7 +33,7 @@
                     <h1>What's the point?</h1>
                     <p class="lead">Whenever I wanted to quickly share documents between different devices on the go, I hit a roadblock. I could either e-mail it to myself,
                     or use online storage tools like Dropbox. However, none of the options available were particularly fast, mainly because they were account-based and required logging in.
-                    With [CP.Share], my aim was to provide a tool that requires no account and where users can simply up- and download files on demand through the use of tokens.</p>
+                    With [CP&amp;Share], my aim was to provide a tool that requires no account and where users can simply up- and download files on demand through the use of tokens.</p>
                 </li>
             </ul>
         </main>
