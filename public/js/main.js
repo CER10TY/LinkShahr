@@ -14,8 +14,30 @@
         }, false);
         });
 
+        document.getElementById('customFile').addEventListener( 'change', function( e )
+        {
+            var label = document.getElementById('custom-file-lbl');
+		    var labelVal = label.innerHTML;
+            var fileName = '';
+            if( this.files && this.files.length > 1 )
+                fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+            else if ( this.files && this.files.length === 1) 
+                if (e.target.value.length >= 50)
+                    fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                else
+                    fileName = e.target.value.split( '\\' ).pop();
+            else 
+                fileName = '';
+                labelVal = "Choose file(s)";
 
-        document.getElementById('customFile').addEventListener('change', function (e) {
+            if ( fileName )
+                label.innerHTML = fileName;
+            else
+                label.innerHTML = labelVal;
+        });
+
+
+        /* document.getElementById('customFile').addEventListener('change', function (e) {
             let fileList = document.getElementById("custom-file-list");
             Array.from(e.target.files).forEach(file => {
                 let size = humanFileSize(file.size, false);
@@ -44,7 +66,7 @@
 
             });
             fileList.classList.remove("d-none");
-        });
+        }); */
     }, false);
 
     function humanFileSize(bytes, si) {

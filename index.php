@@ -25,15 +25,13 @@
             </header>
 
             <main role="main" class="inner cover d-flex justify-content-center">
-                <form enctype="multipart/form-data" class="col-sm-3" action="src/upload.php" method="POST" class="needs-validation" novalidate>
+                <form enctype="multipart/form-data" class="col-sm-2" action="src/upload.php" method="POST" class="needs-validation" novalidate>
                     <div class="form-group">
-                        <div class="custom-file" style="background: hsl(0%, 0%, 14%) !important;">
-                            <input type="file" class="custom-file-input" id="customFile" name="file[]" style="background-color: #333 !important" multiple required>
-                            <label class="custom-file-label" for="customFile" id="custom-file-lbl">Choose file(s)</label>
+                            <input type="file" class="file-input" id="customFile" name="file[]" data-multiple-caption="{count} file(s) selected" multiple required>
+                            <label class="file-label" for="customFile" id="custom-file-lbl">Choose file(s)</label>
                             <div class="invalid-feedback">
                                 Please select a valid file.
                             </div>
-                        </div>
                         <ul class="list-group d-none" id="custom-file-list">
                         </ul>
                     </div>
