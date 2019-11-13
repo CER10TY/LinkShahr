@@ -33,8 +33,9 @@
             
             if (!isset($_FILES) || $_FILES['file']['error'][0] !== 0) {
                 $error = true;
-                $errorMsg = "Error 413: Files were too large!";
-            } elseif ($_FILES['file']) {
+                $errorMsg = "Error 413: Files are too large!";
+            } 
+            if ($_FILES['file']) {
                 if ($_POST['duration']) {
 
                     $file_ary = reArrayFiles($_FILES['file']);
@@ -72,6 +73,9 @@
 
                     $processed = true;
                 }
+            }
+            if ($_POST['link']) {
+                var_dump($_POST['link']);
             }
         ?>
 

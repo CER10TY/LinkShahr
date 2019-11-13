@@ -7,6 +7,7 @@
 
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./public/css/main.css">
         <link rel="stylesheet" href="./public/css/index.css">
     </head>
@@ -16,7 +17,7 @@
         <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="masthead mb-auto">
                 <div class="inner">
-                <a href="#"><h3 class="masthead-brand">Quicksha.re</h3></a>
+                <a href="#"><h3 class="masthead-brand">[CP.Share]</h3></a>
                 <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="src/features.php">Features</a>
                     <a class="nav-link" href="src/contact.php">Contact</a>
@@ -25,18 +26,21 @@
             </header>
 
             <main role="main" class="inner cover d-flex justify-content-center">
-                <form enctype="multipart/form-data" class="col-sm-2" action="src/upload.php" method="POST" class="needs-validation" novalidate>
+                <form enctype="multipart/form-data" class="col-sm-2 needs-validation" action="src/upload.php" method="POST" novalidate>
                     <div class="form-group">
-                            <input type="file" class="file-input" id="customFile" name="file[]" data-multiple-caption="{count} file(s) selected" multiple required>
-                            <label class="file-label" for="customFile" id="custom-file-lbl">Choose file(s)</label>
-                            <div class="invalid-feedback">
-                                Please select a valid file.
-                            </div>
-                        <ul class="list-group d-none" id="custom-file-list">
+                        <input type="file" class="file-input" id="customFile" name="file[]" data-multiple-caption="{count} file(s) selected" multiple>
+                        <label class="file-label" for="customFile" id="custom-file-lbl">Choose file(s)</label>
                         </ul>
+                        <p class="text-center">or</p>
                     </div>
                     <div class="form-group">
-                        <select class="custom-select" name="duration" required>
+                        <input type="text" class="form-control" id="linkInput" name="link" placeholder="Paste any text">
+                        <div class="invalid-feedback">
+                            Please choose valid file(s) or type in any text.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="custom-select" id="durationSelect" name="duration" required>
                             <option value="">Duration</option>
                             <option value="6">6 hours</option>
                             <option value="12">12 hours</option>
@@ -61,6 +65,6 @@
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="../public/js/main.js"></script>
+        <script src="./public/js/main.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 body {
     display: -ms-flexbox;
     display: flex;
-    color: #333;
+    color: #fff;
 }
 
 [type="file"] {
@@ -17,6 +17,7 @@ body {
 
 [type="file"] + label {
   background-color: #f8f9fa;
+  border-radius: 0.25rem;
   width: 100%;
   color: #212529;
   cursor: pointer;
@@ -33,6 +34,12 @@ body {
  
 [type="file"]:focus + label {
   outline: 1px dotted rgb(160, 159, 159);
+}
+
+[type="file"]:invalid + label {
+  border-color: #dc3545;
+    padding-right: calc((1em + .75rem) * 3 / 4 + 1.75rem);
+    background: #fff;
 }
 
 .custom-select {

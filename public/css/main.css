@@ -42,6 +42,7 @@ body {
 
 .masthead-brand {
   margin-bottom: 0;
+  font-family: 'VT323', monospace;
 }
 
 .masthead-brand:hover {

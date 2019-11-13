@@ -1,28 +1,44 @@
-(function() {
+;(function() {
     'use strict';
     window.addEventListener('load', function() {
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
+        let forms = document.getElementsByClassName('needs-validation');
         // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-        }, false);
+        Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                let fileInput = document.getElementById('customFile');
+                let link = document.getElementById('linkInput');
+                let duration = document.getElementById('durationSelect');
+
+                if (fileInput.files.length === 0 && link.value === "") {
+                    link.classList.add('is-invalid');
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    link.classList.remove('is-invalid');
+                    link.classList.add('is-valid');
+                }
+
+                if (form.checkValidity() === false) {
+                    duration.classList.add('is-invalid');
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    duration.classList.remove('is-invalid');
+                    duration.classList.add('is-valid');
+                }
+            }, false);
         });
 
         document.getElementById('customFile').addEventListener( 'change', function( e )
         {
-            var label = document.getElementById('custom-file-lbl');
-		    var labelVal = label.innerHTML;
-            var fileName = '';
-            if( this.files && this.files.length > 1 )
+            let label = document.getElementById('custom-file-lbl');
+            let labelVal = label.innerHTML;
+            let fileName = '';
+            if ( this.files && this.files.length > 1 )
                 fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
             else if ( this.files && this.files.length === 1) 
-                if (e.target.value.length >= 50)
+                if ( e.target.value.length >= 50 )
                     fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
                 else
                     fileName = e.target.value.split( '\\' ).pop();
@@ -35,53 +51,5 @@
             else
                 label.innerHTML = labelVal;
         });
-
-
-        /* document.getElementById('customFile').addEventListener('change', function (e) {
-            let fileList = document.getElementById("custom-file-list");
-            Array.from(e.target.files).forEach(file => {
-                let size = humanFileSize(file.size, false);
-                let name = file.name;
-
-                let fileElement = document.createElement("li");
-                let removeLink = document.createElement("a");
-
-                fileElement.setAttribute("id", "file-" + Math.floor((Math.random() * 250) + 1))
-
-                removeLink.setAttribute("href", "#");
-                removeLink.setAttribute("data-element", fileElement.id);
-                removeLink.classList.add("badge", "badge-dark");
-                removeLink.appendChild(document.createTextNode("X"));
-
-
-                removeLink.addEventListener("click",function(e) {
-                   document.getElementById(e.target.dataset.element).remove();
-                });
-
-                fileElement.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
-                fileElement.appendChild(document.createTextNode(size + ": " + name));
-                fileElement.appendChild(removeLink);
-
-                fileList.appendChild(fileElement);
-
-            });
-            fileList.classList.remove("d-none");
-        }); */
     }, false);
-
-    function humanFileSize(bytes, si) {
-        var thresh = si ? 1000 : 1024;
-        if(Math.abs(bytes) < thresh) {
-            return bytes + ' B';
-        }
-        var units = si
-            ? ['kB','MB','GB','TB','PB','EB','ZB','YB']
-            : ['KiB','MiB','GiB','TiB','PiB','EiB','ZiB','YiB'];
-        var u = -1;
-        do {
-            bytes /= thresh;
-            ++u;
-        } while(Math.abs(bytes) >= thresh && u < units.length - 1);
-        return bytes.toFixed(1)+' '+units[u];
-    }
 })();

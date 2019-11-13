@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../public/css/main.css">
         <link rel="stylesheet" href="../public/css/features.css">
     </head>
@@ -12,7 +13,7 @@
     <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
-            <a href="../index.php"><h3 class="masthead-brand">Quicksha.re</h3></a>
+            <a href="../index.php"><h3 class="masthead-brand">[CP.Share]</h3></a>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="features.php">Features</a>
                 <a class="nav-link active" href="#">Contact</a>
